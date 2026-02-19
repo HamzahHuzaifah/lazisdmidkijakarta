@@ -1,10 +1,12 @@
-const Navbar = ({ setHalaman }) => {
+import { NavLink, Link } from 'react-router-dom';
+
+const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg fixed-top transition-all">
       <div className="container">
-        <a className="navbar-brand fw-bold text-success" href="#" onClick={() => setHalaman('beranda')}>
+        <Link className="navbar-brand fw-bold text-success" to="/">
           Lazis DMI DKI Jakarta
-        </a>
+        </Link>
         <button className="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -15,19 +17,21 @@ const Navbar = ({ setHalaman }) => {
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Profil</a>
               <ul className="dropdown-menu border-0 shadow-sm">
-                <li><button className="dropdown-item" onClick={() => setHalaman('tentang')}>Tentang Kami</button></li>
-                <li><button className="dropdown-item" onClick={() => setHalaman('visimisi')}>Visi & Misi</button></li>
-                <li><button className="dropdown-item" onClick={() => setHalaman('pengurus')}>Susunan Pengurus</button></li>
+                <li><NavLink className="dropdown-item" to="/tentang-kami">Tentang Kami</NavLink></li>
+                <li><NavLink className="dropdown-item" to="/visi-misi">Visi &amp; Misi</NavLink></li>
+                <li><NavLink className="dropdown-item" to="/susunan-pengurus">Susunan Pengurus</NavLink></li>
               </ul>
             </li>
 
-            {/* Ziswaf Dropdown */}
+            {/* Zakat Dropdown */}
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Ziswaf</a>
+              <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Zakat</a>
               <ul className="dropdown-menu border-0 shadow-sm">
-                <li><button className="dropdown-item" onClick={() => setHalaman('zakat')}>Zakat</button></li>
-                <li><button className="dropdown-item" onClick={() => setHalaman('wakaf')}>Wakaf</button></li>
-                <li><button className="dropdown-item" onClick={() => setHalaman('infaq')}>Infaq</button></li>
+                <li><NavLink className="dropdown-item" to="/zakat">Zakat</NavLink></li>
+                <li><NavLink className="dropdown-item" to="/kalkulator-zakat">🧮 Kalkulator Zakat</NavLink></li>
+                <li><hr className="dropdown-divider" /></li>
+                <li><NavLink className="dropdown-item" to="/infaq">Infaq &amp; Shodaqoh</NavLink></li>
+                <li><NavLink className="dropdown-item" to="/edukasi">Edukasi</NavLink></li>
               </ul>
             </li>
 
@@ -35,13 +39,13 @@ const Navbar = ({ setHalaman }) => {
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Program</a>
               <ul className="dropdown-menu border-0 shadow-sm">
-                <li><button className="dropdown-item" onClick={() => setHalaman('donasi')}>Semua Program</button></li>
+                <li><NavLink className="dropdown-item" to="/program">Semua Program</NavLink></li>
                 <li><hr className="dropdown-divider" /></li>
-                <li><button className="dropdown-item" onClick={() => setHalaman('pendidikan')}>Pendidikan</button></li>
-                <li><button className="dropdown-item" onClick={() => setHalaman('kesehatan')}>Kesehatan</button></li>
-                <li><button className="dropdown-item" onClick={() => setHalaman('ekonomi')}>Ekonomi</button></li>
-                <li><button className="dropdown-item" onClick={() => setHalaman('kemanusiaan')}>Kemanusiaan</button></li>
-                <li><button className="dropdown-item" onClick={() => setHalaman('lingkungan')}>Lingkungan</button></li>
+                <li><NavLink className="dropdown-item" to="/program/pendidikan">Pendidikan</NavLink></li>
+                <li><NavLink className="dropdown-item" to="/program/kesehatan">Kesehatan</NavLink></li>
+                <li><NavLink className="dropdown-item" to="/program/ekonomi">Ekonomi</NavLink></li>
+                <li><NavLink className="dropdown-item" to="/program/kemanusiaan">Kemanusiaan</NavLink></li>
+                <li><NavLink className="dropdown-item" to="/program/lingkungan">Lingkungan</NavLink></li>
               </ul>
             </li>
 
@@ -49,22 +53,23 @@ const Navbar = ({ setHalaman }) => {
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Layanan</a>
               <ul className="dropdown-menu border-0 shadow-sm">
-                <li><button className="dropdown-item" onClick={() => setHalaman('kantor')}>Kantor Layanan</button></li>
-                <li><button className="dropdown-item" onClick={() => setHalaman('konsultasi')}>Konsultasi</button></li>
-                <li><button className="dropdown-item" onClick={() => setHalaman('rekening')}>Info Rekening</button></li>
-                <li><button className="dropdown-item" onClick={() => setHalaman('laporan')}>Annual Report</button></li>
+                <li><NavLink className="dropdown-item" to="/kantor-layanan">Kantor Layanan</NavLink></li>
+                <li><NavLink className="dropdown-item" to="/konsultasi">Konsultasi</NavLink></li>
+                <li><NavLink className="dropdown-item" to="/info-rekening">Info Rekening</NavLink></li>
+                <li><NavLink className="dropdown-item" to="/annual-report">Annual Report</NavLink></li>
               </ul>
             </li>
 
-            <li className="nav-item"><button className="nav-link btn-link border-0 bg-transparent" onClick={() => setHalaman('manfaat')}>Manfaat</button></li>
-            <li className="nav-item"><button className="nav-link btn-link border-0 bg-transparent" onClick={() => setHalaman('berita')}>Berita</button></li>
+            <li className="nav-item"><NavLink className="nav-link" to="/penerima-manfaat">Manfaat</NavLink></li>
+            <li className="nav-item"><NavLink className="nav-link" to="/berita">Berita</NavLink></li>
           </ul>
           <div className="d-flex ms-lg-4 gap-3 mt-3 mt-lg-0 align-items-center">
-            <button className="btn btn-success btn-sm rounded-pill px-4 py-2 shadow-sm fw-bold" onClick={() => setHalaman('donasi')}>Donasi Sekarang</button>
+            <Link className="btn btn-success btn-sm rounded-pill px-4 py-2 shadow-sm fw-bold" to="/program">Donasi Sekarang</Link>
           </div>
         </div>
       </div>
     </nav>
   );
 };
+
 export default Navbar;
